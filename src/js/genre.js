@@ -1,79 +1,175 @@
-const genres = [
+const genre = [
   {
-    id: 28,
+    id: 1,
     name: "Action",
   },
   {
-    id: 12,
+    id: 2,
     name: "Adventure",
   },
   {
-    id: 16,
-    name: "Animation",
+    id: 3,
+    name: "Cars",
   },
   {
-    id: 35,
+    id: 4,
     name: "Comedy",
   },
   {
-    id: 80,
-    name: "Crime",
+    id: 5,
+    name: "Dementia",
   },
   {
-    id: 99,
-    name: "Documentary",
+    id: 6,
+    name: "Demons",
   },
   {
-    id: 18,
-    name: "Drama",
-  },
-  {
-    id: 10751,
-    name: "Family",
-  },
-  {
-    id: 14,
-    name: "Fantasy",
-  },
-  {
-    id: 36,
-    name: "History",
-  },
-  {
-    id: 27,
-    name: "Horror",
-  },
-  {
-    id: 10402,
-    name: "Music",
-  },
-  {
-    id: 9648,
+    id: 7,
     name: "Mystery",
   },
   {
-    id: 10749,
+    id: 8,
+    name: "Drama",
+  },
+  {
+    id: 9,
+    name: "Ecchi",
+  },
+  {
+    id: 10,
+    name: "Fantasy",
+  },
+  {
+    id: 11,
+    name: "Game",
+  },
+/*  {
+    id: 12,
+    name: "Hentai",
+  }, BONK! Go to Horny Jail */
+  {
+    id: 13,
+    name: "Historical",
+  },
+  {
+    id: 14,
+    name: "Horror",
+  },
+  {
+    id: 15,
+    name: "Kids",
+  },
+  {
+    id: 16,
+    name: "Magic",
+  },
+  {
+    id: 17,
+    name: "Martial Arts",
+  },
+  {
+    id: 18,
+    name: "Mecha",
+  },
+  {
+    id: 19,
+    name: "Music",
+  },
+  {
+    id: 20,
+    name: "Parody",
+  },
+  {
+    id: 21,
+    name: "Samurai",
+  },
+  {
+    id: 22,
     name: "Romance",
   },
   {
-    id: 878,
-    name: "Science Fiction",
+    id: 23,
+    name: "School",
   },
   {
-    id: 10770,
-    name: "TV Movie",
+    id: 24,
+    name: "Sci Fi",
   },
   {
-    id: 53,
-    name: "Thriller",
+    id: 25,
+    name: "Shoujo",
   },
   {
-    id: 10752,
-    name: "War",
+    id: 26,
+    name: "Shoujo Ai",
+  },
+  {
+    id: 27,
+    name: "Shounen",
+  },
+  {
+    id: 28,
+    name: "Shounen Ai",
+  },
+  {
+    id: 29,
+    name: "Space",
+  },
+  {
+    id: 30,
+    name: "Sports",
+  },
+  {
+    id: 31,
+    name: "Super Power",
+  },
+  {
+    id: 32,
+    name: "Vampire",
+  },
+  {
+    id: 33,
+    name: "Yaoi",
+  },
+  {
+    id: 34,
+    name: "Yuri",
+  },
+  {
+    id: 35,
+    name: "Harem",
+  },
+  {
+    id: 36,
+    name: "Slice of Life",
   },
   {
     id: 37,
-    name: "Western",
+    name: "Supernatural",
+  },
+  {
+    id: 38,
+    name: "Military",
+  },
+  {
+    id: 39,
+    name: "Police",
+  },
+  {
+    id: 40,
+    name: "Psychological",
+  },
+  {
+    id: 41,
+    name: "Thriller",
+  },
+  {
+    id: 42,
+    name: "Seinen",
+  },
+  {
+    id: 43,
+    name: "Josei",
   },
 ];
-export { genres };
+export { genre };
