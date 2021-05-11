@@ -104,10 +104,10 @@ body {
   font-size: 2rem;
 }
 
-.anime-card:hover .movie-card-front {
+.anime-card:hover .anime-card-front {
   z-index: 1;
 }
-.anime-card:hover .movie-card-back {
+.anime-card:hover .anime-card-back {
   z-index: 3;
   display: flex;
 }
