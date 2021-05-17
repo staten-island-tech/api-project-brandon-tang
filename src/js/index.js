@@ -29,6 +29,7 @@ const query = async function() {
               <div class="anime-members-box">
                 <p class="anime-members">Members - ${element.members}</p>
               </div>
+
               <div class="release-box">
                 <p class="release-date">${element.airing_start}</p>
               </div>
@@ -51,6 +52,12 @@ const query = async function() {
         console.log(error);
         alert("Something dun goofed up!");
     }
+}
+
+DOMSelectors.buttons.addEventListener('click', nextButton)
+
+function nextButton() {
+  console.log("clicked!")
 }
 
 query();
