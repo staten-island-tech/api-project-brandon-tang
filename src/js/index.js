@@ -6,10 +6,11 @@ const key = "YOURKEYHERE";
 const query = async function() {
     try {
         const response = await fetch(
-            `https://api.jikan.moe/v3/genre/anime/4/1`
+            `https://api.jikan.moe/v3/genre/anime/7/1`
         );
         const data = await response.json();
-        data.results.forEach((anime) => {
+        data.anime.forEach((element) => {
+          DOMSelectors.grid.insertAdjacentHTML(
             "beforeend",      
             `<div class="anime-card">
             <div class="anime-card-front">
@@ -20,14 +21,16 @@ const query = async function() {
               />
             </div>
             <div class="anime-card-back">
-              <h3 class="anime-card-header">${anime.title}</h3>
+              <h3 class="anime-card-header">${element.title}</h3>
               <div class="score-box">
-                <p class="user-score">${anime.score}</p>
+                <p class="user-score">${element.score}*</p>
               </div>
-    
+
+              <div class="anime-members-box">
+                <p class="anime-members">Members - ${element.members}</p>
+              </div>
               <div class="release-box">
-                <p class="release-date">Finished Airing</p>
-                <p class="release-date">${anime.airing_start}</p>
+                <p class="release-date">${element.airing_start}</p>
               </div>
     
               <div class="anime-genres">
@@ -42,7 +45,8 @@ const query = async function() {
               </div>
             </div>
           </div>`
-        });
+          )
+        }); 
     } catch (error) {
         console.log(error);
         alert("Something dun goofed up!");
