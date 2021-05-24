@@ -1,12 +1,13 @@
 import { DOMSelectors } from "./DOM";
 import { genre } from "./genre";
 
-const key = "YOURKEYHERE";
-
+let genreId = 1
+let pageNo = 1
 const query = async function() {
+    DOMSelectors.grid.innerHTML = "";
     try {
         const response = await fetch(
-            `https://api.jikan.moe/v3/genre/anime/7/1`
+            `https://api.jikan.moe/v3/genre/anime/${genreId}/${pageNo}`
         );
         const data = await response.json();
         data.anime.forEach((element) => {
@@ -15,7 +16,7 @@ const query = async function() {
             `<div class="anime-card">
             <div class="anime-card-front">
               <img
-                src="https://cdn.myanimelist.net/images/anime/1208/94745l.jpg"
+                src="${element.image_url}"
                 alt=""
                 class="poster"
               />
@@ -54,10 +55,47 @@ const query = async function() {
     }
 }
 
-DOMSelectors.buttons.addEventListener('click', nextButton)
+query();
 
-function nextButton() {
-  console.log("clicked!")
+const nextPage = function() {
+  DOMSelectors.pageNext.addEventListener("click", function next(){
+    pageNo ++;
+    query();
+  })
+
 }
 
-query();
+nextPage();
+
+const prevPage = function() {
+  DOMSelectors.pagePrev.addEventListener("click", function next(){
+    pageNo --;
+    query();
+  })
+
+}
+
+prevPage();
+
+const nextGenre = function() {
+  DOMSelectors.genreNext.addEventListener("click", function next(){
+    genreId ++;
+    query();
+  })
+
+}
+
+nextGenre();
+
+const prevGenre = function() {
+  DOMSelectors.genrePrev.addEventListener("click", function next(){
+    genreId --;
+    query();
+  })
+
+}
+
+prevGenre();
+
+
+
