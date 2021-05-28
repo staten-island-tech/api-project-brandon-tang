@@ -1,9 +1,11 @@
 import { DOMSelectors } from "./DOM";
 import { genre } from "./genre";
 
-let genreId = 1
-let pageNo = 1
+// let genreNumber = 1;
+let genreId = 1;
+let pageNo = 1;
 const query = async function() {
+  // const genreId = genreNumber
     DOMSelectors.grid.innerHTML = "";
     try {
         const response = await fetch(
@@ -17,14 +19,14 @@ const query = async function() {
             <div class="anime-card-front">
               <img
                 src="${element.image_url}"
-                alt=""
+                alt="Poster of ${element.title}"
                 class="poster"
               />
             </div>
             <div class="anime-card-back">
-              <h3 class="anime-card-header">${element.title}</h3>
+              <h4 class="anime-card-header">${element.title}</h4>
               <div class="score-box">
-                <p class="user-score">${element.score}*</p>
+                <p class="user-score">${element.score}/10</p>
               </div>
 
               <div class="anime-members-box">
@@ -32,7 +34,8 @@ const query = async function() {
               </div>
 
               <div class="release-box">
-                <p class="release-date">${element.airing_start}</p>
+                <p class="release-date">${dateFormat(element.airing_start)}</p>
+                <p class="release-date">${timeFormat(element.airing_start)}</p>
               </div>
     
               <div class="anime-genres">
@@ -49,6 +52,7 @@ const query = async function() {
           </div>`
           )
         }); 
+
     } catch (error) {
         console.log(error);
         alert("Something dun goofed up!");
@@ -58,7 +62,7 @@ const query = async function() {
 query();
 
 const nextPage = function() {
-  DOMSelectors.pageNext.addEventListener("click", function next(){
+  DOMSelectors.pageNext.addEventListener("click", function (){
     pageNo ++;
     query();
   })
@@ -68,7 +72,7 @@ const nextPage = function() {
 nextPage();
 
 const prevPage = function() {
-  DOMSelectors.pagePrev.addEventListener("click", function next(){
+  DOMSelectors.pagePrev.addEventListener("click", function (){
     pageNo --;
     query();
   })
@@ -77,8 +81,14 @@ const prevPage = function() {
 
 prevPage();
 
+//danger dont go to genreId = 12 lol :/
 const nextGenre = function() {
-  DOMSelectors.genreNext.addEventListener("click", function next(){
+  DOMSelectors.genreNext.addEventListener("click", function(){
+    /* if (genreId = 11) {
+      genreId += 2;
+      query(genreId);
+    } else { */
+      // working for a while, still could not figure out why applying logic wouldn't work..
     genreId ++;
     query();
   })
@@ -88,7 +98,7 @@ const nextGenre = function() {
 nextGenre();
 
 const prevGenre = function() {
-  DOMSelectors.genrePrev.addEventListener("click", function next(){
+  DOMSelectors.genrePrev.addEventListener("click", function (){
     genreId --;
     query();
   })
@@ -98,4 +108,18 @@ const prevGenre = function() {
 prevGenre();
 
 
+// thank you internet, this formats the datestrings that are used. 
+const dateFormat = function (airformat) {
+    return new Date(airformat).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
 
+const timeFormat = function (airformat) {
+    return new Date(airformat).toLocaleTimeString(undefined, {
+      hour: "numeric",
+      minute: "numeric",
+    });
+  };

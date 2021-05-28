@@ -20,6 +20,14 @@ body {
   margin: 3rem auto;
   text-align: center;
 }
+
+.genreTitle {
+  font-size: 5.2rem;
+
+  margin: 3rem auto;
+  text-align: center;
+}
+
 .top-rated {
   margin: 1rem auto 2rem auto;
   text-align: center;
@@ -118,4 +126,8 @@ body {
 .test {
   color: black;
   font-size: 3rem;
+}
+
+#button-grid {
+  color:red;
 }
